@@ -1,0 +1,18 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: building docker image
+      command: docker build -t my_admin_image .
+      args:
+        chdir: /opt/docker/my-admin-ui
+
+    - name: stop if we have old docker container
+      command: docker stop my_admin_image
+      ignore_errors: yes
+
+    - name: remove stopped docker container
+      command: docker rm my_admin_image
+      ignore_errors: yes
+
+    - name: creating docker image using docker command
+      command: docker run --network="my" -d --name my_admin_image -p 3010:3000 my_admin_image
