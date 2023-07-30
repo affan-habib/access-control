@@ -91,7 +91,7 @@ const Customization = () => {
   return (
     <>
       
-        <TextField
+        {/* <TextField
           label="Fonts"
           sx={{ ml: 2, minWidth: 100 }}
           size="small"
@@ -118,7 +118,7 @@ const Customization = () => {
               {el.label}
             </MenuItem>
           ))}
-        </TextField>
+        </TextField> */}
         <IconButton
           onClick={() => onChangeMode(isDarkMode ? "light" : "dark")}
           sx={{ ml: 2 }}

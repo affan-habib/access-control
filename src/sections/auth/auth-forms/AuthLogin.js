@@ -22,7 +22,6 @@ import { Formik } from "formik";
 
 // project import
 import useAuth from "hooks/useAuth";
-import useScriptRef from "hooks/useScriptRef";
 import IconButton from "components/@extended/IconButton";
 
 // assets
@@ -39,7 +38,6 @@ const AuthLogin = () => {
   const [capsWarning, setCapsWarning] = React.useState(false);
 
   const isLoggedIn = useAuth();
-  const scriptedRef = useScriptRef();
   useEffect(() => {
     if (isLoggedIn) {
       navigate('/dashboard')
