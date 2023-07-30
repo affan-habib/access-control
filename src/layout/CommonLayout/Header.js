@@ -179,23 +179,6 @@ const Header = ({ handleDrawerOpen, layout = "landing", ...others }) => {
                       />
                     </ListItemButton>
                   </Link>
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    href="/components-overview/buttons"
-                  >
-                    <ListItemButton component="span">
-                      <ListItemIcon>
-                        <LineOutlined />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary="All Components"
-                        primaryTypographyProps={{
-                          variant: "h6",
-                          color: "text.primary",
-                        }}
-                      />
-                    </ListItemButton>
-                  </Link>
                 </List>
                 <Customization />
               </Box>
