@@ -56,11 +56,11 @@ export function getUser(id) {
   };
 }
 
-export function getUserChats(chatId) {
+export function getUserChats(user) {
   return async () => {
     try {
-      const response = await axios.get(`http://13.212.46.33:5000/api/v1/message/${chatId}`,);
-      dispatch(chat.actions.getUserChatsSuccess(response.data.data));
+      const response = await axios.post('/api/chat/filter', { user });
+      dispatch(chat.actions.getUserChatsSuccess(response.data));
     } catch (error) {
       dispatch(chat.actions.hasError(error));
     }
@@ -70,20 +70,20 @@ export function getUserChats(chatId) {
 export function insertChat(chat) {
   return async () => {
     try {
-      await axios.post(`http://13.212.46.33:5000/api/v1/message`, chat);
+      await axios.post('/api/chat/insert', chat);
     } catch (error) {
       dispatch(chat.actions.hasError(error));
     }
   };
 }
 
-// export function getUsers() {
-//   return async () => {
-//     try {
-//       const response = await axios.get('/api/chat/users');
-//       dispatch(chat.actions.getUsersSuccess(response.data.users));
-//     } catch (error) {
-//       dispatch(chat.actions.hasError(error));
-//     }
-//   };
-// }
+export function getUsers() {
+  return async () => {
+    try {
+      const response = await axios.get('/api/chat/users');
+      dispatch(chat.actions.getUsersSuccess(response.data.users));
+    } catch (error) {
+      dispatch(chat.actions.hasError(error));
+    }
+  };
+}

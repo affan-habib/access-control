@@ -1,59 +1,45 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
-// project import
-import { useDispatch, useSelector } from 'react-redux';
-import { callApi, selectApi } from 'store/reducers/apiSlice';
 import { UrlBuilder } from 'helpers/UrlBuilder';
 import useAuth from 'hooks/useAuth';
 import { getRefreshToken, getUserIdAndName } from 'helpers/AuthUtils';
-import Cookies from 'js-cookie';
-
-// ==============================|| AUTH GUARD ||============================== //
 
 const AuthGuard = ({ children }) => {
   const isLoggedIn = useAuth();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { refresh } = useSelector(selectApi)
   const refresh_token = getRefreshToken();
-  const { userId } = getUserIdAndName()
+  const { userId } = getUserIdAndName();
+
   useEffect(() => {
     if (!isLoggedIn && refresh_token) {
-      dispatch(
-        callApi({
-          operationId: UrlBuilder.coreServiceApi("core/user/token/refresh"),
-          output: "refresh",
-          parameters: {
-            body: JSON.stringify({
-              user_id: userId,
-              refresh_token: refresh_token
-            }),
-            method: "POST",
-          }
+      axios
+        .post(UrlBuilder.coreServiceApi("core/user/token/refresh"), {
+          user_id: userId,
+          refresh_token: refresh_token,
         })
-      );
+        .then((response) => {
+          const expirationDate = new Date();
+          expirationDate.setTime(
+            expirationDate.getTime() + 60 * 60 * 1000
+          ); // 1 hour in milliseconds
+          Cookies.set("access_token", response.data.access_token, {
+            expires: expirationDate,
+          });
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle refresh error
+        });
     }
-    if (refresh?.data?.access_token && !isLoggedIn) {
-      const expirationDate = new Date();
-      expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000); // 1 hour in milliseconds
-      Cookies.set("access_token", refresh.data.access_token, {
-        expires: expirationDate,
-      });
-      window.location.reload();
-    }
+
     if (!isLoggedIn && !refresh_token) {
       navigate('login', { replace: true });
     }
-  }, [refresh_token, isLoggedIn, refresh]);
-
-
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     navigate('login', { replace: true });
-  //   }
-  // }, [isLoggedIn, navigate]);
+  }, [refresh_token, isLoggedIn]);
 
   return children;
 };

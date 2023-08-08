@@ -1,24 +1,32 @@
-// Third-party
-import { combineReducers } from "redux";
+// third-party
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-// Project imports
-import menuReducer from "./menu";
-import snackbarReducer from "./snackbar";
-import apiSlice from "./apiSlice";
+// project import
 import chat from './chat';
-import cartSlice from "./cartSlice";
-import toastAlertReducer from "./toastSlice";
-import errorMessageReducer from "./errorMessageSlice";
+import calendar from './calendar';
+import menu from './menu';
+import snackbar from './snackbar';
+import productReducer from './product';
+import cartReducer from './cart';
 
-// Combine Reducers
-const rootReducer = combineReducers({
-  menu: menuReducer,
+// ==============================|| COMBINE REDUCERS ||============================== //
+
+const reducers = combineReducers({
   chat,
-  snackbar: snackbarReducer,
-  api: apiSlice,
-  cart: cartSlice,
-  toast: toastAlertReducer,
-  errorMessage: errorMessageReducer,
+  calendar,
+  menu,
+  snackbar,
+  cart: persistReducer(
+    {
+      key: 'cart',
+      storage,
+      keyPrefix: 'mantis-ts-'
+    },
+    cartReducer
+  ),
+  product: productReducer
 });
 
-export default rootReducer;
+export default reducers;

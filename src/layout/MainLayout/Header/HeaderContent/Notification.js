@@ -26,9 +26,6 @@ import Transitions from 'components/@extended/Transitions';
 
 // assets
 import { BellOutlined, CheckCircleOutlined, GiftOutlined, MessageOutlined, SettingOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { UrlBuilder } from 'helpers/UrlBuilder';
-import { callApi, selectApi } from 'store/reducers/apiSlice';
 
 // third-party library
 import formatDateAndTime from 'helpers/formatDateAndTime';
@@ -56,7 +53,6 @@ const Notification = () => {
   const theme = useTheme();
   const matchesXs = useMediaQuery(theme.breakpoints.down('md'));
 
-  const dispatch = useDispatch();
 
 
   const anchorRef = useRef(null);
@@ -66,18 +62,7 @@ const Notification = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleNotificationClick = (notificationId) => {
-    if (!notificationId.is_seen) {
-      // Perform API call here
-      // Example:
-      dispatch(
-        callApi({
-          operationId: UrlBuilder.coreServiceApi(`core/notification/${notificationId.id}`),
-          method: 'PUT',
-        })
-      );
-    }
-  };
+
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
@@ -173,7 +158,6 @@ const Notification = () => {
                         <ListItemButton
                           selected={read > 0}
                           className={item.is_seen ? 'seen' : ''}
-                          onClick={() => handleNotificationClick(item)}
                         >
                           <ListItemAvatar>
                             <Avatar
