@@ -4,11 +4,11 @@ import Button from "@mui/material/Button";
 function HomePage() {
     return (
         <div>
-            <Button variant="shadow" color="primary">Home Page is coming</Button>
-            <Button variant="shadow" color="secondary">Home Page is coming</Button>
-            <Button variant="shadow" color="info">Home Page is coming</Button>
-            <Button variant="shadow" color="warning">Home Page is coming</Button>
-            <Button variant="shadow" color="error">Home Page is coming</Button>
+            <Button variant="contained" color="primary">Home Page is coming</Button>
+            <Button variant="contained" color="secondary">Home Page is coming</Button>
+            <Button variant="contained" color="info">Home Page is coming</Button>
+            <Button variant="contained" color="warning">Home Page is coming</Button>
+            <Button variant="contained" color="error">Home Page is coming</Button>
         </div>
     )
 }
