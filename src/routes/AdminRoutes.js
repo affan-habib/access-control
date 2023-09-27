@@ -1,10 +1,8 @@
 import { lazy } from "react";
 
 // project import
-import Loadable from "components/Loadable";
-const MainLayout = Loadable(lazy(() => import("layout/MainLayout")));
-const AuthGuard = Loadable(lazy(() => import("utils/route-guard/AuthGuard")));
-const Dashboard = Loadable(lazy(() => import("pages/admin/dashboard/Dashboard")));
+import { Box } from "@mui/material";
+
 
 
 const AdminRoutes = {
@@ -13,14 +11,14 @@ const AdminRoutes = {
     {
       path: "/",
       element: (
-        <AuthGuard>
-          <MainLayout />
-        </AuthGuard>
+        <>
+          <h1>Home page</h1>
+        </>
       ),
       children: [
         {
           path: "dashboard",
-          element: <Dashboard />,
+          element: <Box />,
         },
         
       ],

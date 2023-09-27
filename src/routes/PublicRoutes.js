@@ -1,10 +1,5 @@
-import { lazy } from "react";
-import Loadable from "components/Loadable";
+import { Box, Typography } from "@mui/material";
 
-const CommonLayout = Loadable(lazy(() => import("layout/CommonLayout")));
-const Portal = Loadable(lazy(() => import("pages/portal/Portal")));
-const AuthLogin = Loadable(lazy(() => import("pages/auth/login")));
-const Error404 = Loadable(lazy(() => import("pages/maintenance/404")));
 
 const PublicRoutes = {
   path: "/",
@@ -13,22 +8,11 @@ const PublicRoutes = {
       children: [
         {
           path: "/",
-          element: <CommonLayout layout="simple"/>,
-          children: [
-            {
-              path: "/",
-              element: <Portal/>
-            }
-          ]
+          element:  <Typography variant="h1">Home page</Typography>,
         },
-        {
-          path: "login",
-          element: <AuthLogin />,
-        },
-
         {
           path: "*",
-          element: <Error404 />,
+          element: <Box height={300} width={4000} bgcolor="red"/>,
         },
 
       ],
