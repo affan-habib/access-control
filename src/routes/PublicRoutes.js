@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import HomePage from "pages/HomePage";
 
 
 const PublicRoutes = {
@@ -8,11 +9,11 @@ const PublicRoutes = {
       children: [
         {
           path: "/",
-          element:  <Typography variant="h1">Home page</Typography>,
+          element: <HomePage />,
         },
         {
           path: "*",
-          element: <Box height={300} width={4000} bgcolor="red"/>,
+          element: <Box height={300} width={4000} bgcolor="red" />,
         },
 
       ],
