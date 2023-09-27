@@ -19,7 +19,8 @@ export default function ThemeCustomization({ children }) {
             borderRadius: '4px', // Set the default border radius to 4px
             boxShadow: 'none', // Remove the shadow
             '&:hover': {
-              boxShadow: 'none', // Remove the shadow on hover
+              boxShadow: 'none',
+
             },
           },
         },
