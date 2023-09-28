@@ -4,12 +4,9 @@ import { createRoot } from 'react-dom/client'
 import App from './App';
 const container = document.getElementById('root')
 const root = createRoot(container)
-// ==============================|| MAIN - REACT DOM RENDER  ||============================== //
 
 root.render(
-
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
