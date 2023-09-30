@@ -6,5 +6,5 @@ import AdminRoutes from './AdminRoutes';
 // ==============================|| ROUTING RENDER ||============================== //
 
 export default function ThemeRoutes() {
-  return useRoutes([PublicRoutes, AdminRoutes]);
+  return useRoutes([PublicRoutes]);
 }

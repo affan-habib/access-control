@@ -3,6 +3,7 @@ import { lazy } from "react";
 // project import
 import { Box } from "@mui/material";
 import HomePage from "pages/HomePage";
+import Layout from "layout/Layout";
 
 
 
@@ -11,13 +12,13 @@ const AdminRoutes = {
   children: [
     {
       path: "/",
-      element: <Box/>,
+      element: <Layout />,
       children: [
         {
           path: "dashboard",
-          element: <Box />,
+          element: <HomePage />,
         },
-        
+
       ],
     },
   ],
