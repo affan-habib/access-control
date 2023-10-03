@@ -17,7 +17,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation, Link as RouterLink } from 'react-router-dom';
+import menuItems from 'menu-items';
 
 const drawerWidth = 240;
 
@@ -47,7 +48,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
 }));
 
@@ -89,6 +89,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function MiniDrawer() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const location = useLocation();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -115,7 +116,7 @@ export default function MiniDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Mini variant drawer
+                        APP
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -127,9 +128,19 @@ export default function MiniDrawer() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                    {menuItems.map((item, index) => (
+                        <ListItem
+                            key={index}
+                            disablePadding
+                            sx={{
+                                display: 'block',
+                                backgroundColor:
+                                    location.pathname === item.route ? 'lightblue' : 'white', // Change the background color for the active item
+                            }}
+                        >
                             <ListItemButton
+                                component={RouterLink}
+                                to={item.route}
                                 sx={{
                                     minHeight: 48,
                                     justifyContent: open ? 'initial' : 'center',
@@ -143,9 +154,9 @@ export default function MiniDrawer() {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    {item.icon}
                                 </ListItemIcon>
-                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                                <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
                             </ListItemButton>
                         </ListItem>
                     ))}

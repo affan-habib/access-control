@@ -1,7 +1,6 @@
-import { Box, Typography } from "@mui/material";
 import Layout from "layout/Layout";
 import HomePage from "pages/HomePage";
-import SolutionSection from "pages/Solution";
+import NotFoundPage from "pages/NotFoundPage";
 
 
 const PublicRoutes = {
@@ -11,7 +10,7 @@ const PublicRoutes = {
     {
       children: [
         {
-          path: "/",
+          path: "/da",
           element: <HomePage />,
 
         },
@@ -20,7 +19,7 @@ const PublicRoutes = {
     },
     {
       path: "*",
-      element: <Box height={300} width={4000} bgcolor="red" />,
+      element: <NotFoundPage />,
     },
   ],
 };

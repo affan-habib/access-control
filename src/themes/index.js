@@ -1,15 +1,30 @@
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import { CssBaseline, createTheme, ThemeProvider } from '@mui/material';
-import { ThemeProvider as StyledEngineProvider } from '@mui/system'; // Import StyledEngineProvider if you need it
 
 // ==============================|| DEFAULT THEME - MAIN  ||============================== //
 
 export default function ThemeCustomization({ children }) {
   const theme = createTheme({
     palette: {
+      type: 'light',
       primary: {
-        main: '#000', // Set the primary color to black
+        main: 'rgba(0,0,0,0.71)',
+        light: 'rgba(45,41,41,0.71)',
+        dark: 'rgba(30,29,29,0.71)',
+        contrastText: '#ffffff',
+      },
+      secondary: {
+        main: '#2a44e8',
+      },
+      info: {
+        main: '#00f52b',
+      },
+      warning: {
+        main: '#ff0000',
+      },
+      success: {
+        main: '#ff6d00',
       },
     },
     components: {
@@ -32,12 +47,12 @@ export default function ThemeCustomization({ children }) {
   });
 
   return (
-    <StyledEngineProvider injectFirst>
+    <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </StyledEngineProvider>
+    </>
   );
 }
 
