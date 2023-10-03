@@ -4,7 +4,7 @@ import { Box, Typography, Button } from '@mui/material';
 
 function SolutionSection() {
     return (
-        <Box sx={{ backgroundColor: 'black', color: 'white', py: 4, height: "100vh", display: "flex", alignItems: 'center', justifyContent: 'center' }}>
+        <Box sx={{ py: 4, height: "90vh", display: "flex", alignItems: 'center', justifyContent: 'center' }}>
             <Box>
                 <Typography variant="h4" align="center">
                     Discover the Solution You Need

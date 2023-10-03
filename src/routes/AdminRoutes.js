@@ -1,27 +1,18 @@
+import Loadable from "components/Loadable";
 import { lazy } from "react";
 
-// project import
-import { Box } from "@mui/material";
-import HomePage from "pages/HomePage";
-import Layout from "layout/Layout";
-
-
+const Layout = Loadable(lazy(() => import("layout/AdminLayout")));
+const HomePage = Loadable(lazy(() => import("pages/HomePage")));
 
 const AdminRoutes = {
-  path: "/",
+  path: "/admin",
+  element: <Layout />,
   children: [
     {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "dashboard",
-          element: <HomePage />,
-        },
-
-      ],
+      path: "dashboard",
+      element: <HomePage />,
     },
   ],
-};
+}
 
 export default AdminRoutes;
