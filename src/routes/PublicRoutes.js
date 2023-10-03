@@ -1,6 +1,8 @@
-import Layout from "layout/Layout";
-import HomePage from "pages/HomePage";
-import NotFoundPage from "pages/NotFoundPage";
+import Loadable from "components/Loadable";
+import { lazy } from "react";
+const Layout = Loadable(lazy(() => import("layout/Layout")));
+const HomePage = Loadable(lazy(() => import("pages/HomePage")));
+const NotFoundPage = Loadable(lazy(() => import("pages/NotFoundPage")));
 
 
 const PublicRoutes = {
