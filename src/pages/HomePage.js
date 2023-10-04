@@ -3,7 +3,7 @@ import SolutionSection from "./Solution";
 function HomePage() {
     return (
         <>
-            <SolutionSection />
+            
         </>
     )
 }

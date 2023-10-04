@@ -9,7 +9,7 @@ export default function ThemeCustomization({ children }) {
     palette: {
       type: 'light',
       primary: {
-        main: 'rgba(0,0,0,0.71)',
+        main: '#000',
         light: 'rgba(45,41,41,0.71)',
         dark: 'rgba(30,29,29,0.71)',
         contrastText: '#ffffff',
@@ -31,6 +31,7 @@ export default function ThemeCustomization({ children }) {
       MuiButton: {
         styleOverrides: {
           root: {
+            textTransform: 'capitalize',
             borderRadius: '4px', // Set the default border radius to 4px
             boxShadow: 'none', // Remove the shadow
             '&:hover': {

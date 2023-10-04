@@ -1,64 +1,63 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Slide from '@mui/material/Slide';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { Link } from 'react-router-dom';
-import menuItems from 'menu-items';
-import { Stack } from '@mui/material';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Button, Menu, MenuItem, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import menuData from 'menu-items';
 
-const Header = () => {
+
+function MenuBar() {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [selectedMenuItem, setSelectedMenuItem] = useState(null);
+    const open = Boolean(anchorEl);
+
+    const handleMenuClick = (event, index) => {
+        setAnchorEl(event.currentTarget);
+        setSelectedMenuItem(index);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
         <div>
-            <HideOnScroll>
-                <AppBar sx={{ backgroundColor: 'primary.main', boxShadow: 'none' }}>
-                    <Toolbar>
-                        <Container
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}
-                            maxWidth="lg"
-                        >
-                            <Stack
-                                direction="row"
-                                spacing={2}
-                            >
-
-                                {menuItems.map((item, index) => (
-                                    <Typography
-                                        key={index}
-                                        variant="p"
-                                        color="black"
-                                        component={Link}
-                                        to={item.route}
-                                        sx={{ textDecoration: 'none', color: 'inherit' }}
-                                    >
-                                        {item.label}
-                                    </Typography>
-                                ))}
-                            </Stack>
-                        </Container>
-                    </Toolbar>
-                </AppBar>
-            </HideOnScroll>
-            <Toolbar />
+            <AppBar position="static" sx={{ boxShadow: 0 }}>
+                <Toolbar sx={{ bgcolor: ' #333' }}>
+                    {menuData.map((menuItem, index) => (
+                        <div key={index}>
+                            {menuItem.submenu ? (
+                                <Button
+                                    color={selectedMenuItem === index ? 'info' : 'inherit'}
+                                    onClick={(event) => handleMenuClick(event, index)}
+                                >
+                                    {menuItem.label}
+                                </Button>
+                            ) : (
+                                <Button color="inherit" href={menuItem.link} disabled={menuItem.disabled}>
+                                    {menuItem.label}
+                                </Button>
+                            )}
+                            {menuItem.submenu && (
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    open={open}
+                                    onClose={handleMenuClose}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                                    transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                                    getContentAnchorEl={null}
+                                >
+                                    {menuItem.submenu.map((subItem, subIndex) => (
+                                        <MenuItem key={subIndex} onClick={handleMenuClose}>
+                                            {subItem.label}
+                                        </MenuItem>
+                                    ))}
+                                </Menu>
+                            )}
+                        </div>
+                    ))}
+                </Toolbar>
+            </AppBar>
         </div>
-    );
-};
-
-function HideOnScroll(props) {
-    const { children } = props;
-    const trigger = useScrollTrigger();
-
-    return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            {children}
-        </Slide>
     );
 }
 
-export default Header;
+export default MenuBar;
