@@ -161,6 +161,231 @@ const menuData = [
             },
         ],
     },
+    {
+        label: 'Planning',
+        submenu: [
+            {
+                label: 'Project Profile Entry',
+                link: '#',
+            },
+            {
+                label: 'Building Profile Entry',
+                link: '#',
+            },
+            {
+                label: 'Unit Profile Entry',
+                link: '#',
+            },
+            {
+                label: 'Car Park Entry',
+                link: '#',
+            },
+            {
+                label: 'Design Entry',
+                link: '#',
+            },
+            {
+                label: 'Mobilization Entry',
+                link: '#',
+            },
+            {
+                label: 'Project Register',
+                link: '#',
+            },
+            {
+                label: 'Building Register',
+                link: '#',
+            },
+            {
+                label: 'Unit Register',
+                link: '#',
+            },
+            {
+                label: 'Car Park',
+                link: '#',
+            },
+            {
+                label: 'Design Register',
+                link: '#',
+            },
+            {
+                label: 'Mobilization Register',
+                link: '#',
+            },
 
+        ],
+    },
+    {
+        label: 'Purchase',
+        submenu: [
+            {
+                label: 'Material Setup Entry',
+                link: '#',
+            },
+            {
+                label: 'Material Entry',
+                link: '#',
+            },
+            {
+                label: 'Common Material Entry',
+                link: '#',
+            },
+            {
+                label: 'Brand Origin Entry',
+                link: '#',
+            },
+            {
+                label: 'MBL Standard Entry',
+                link: '#',
+            },
+            {
+                label: 'Contractor Profile Entry',
+                link: '#',
+            },
+            {
+                label: 'Material Survey Entry',
+                link: '#',
+            },
+            {
+                label: 'Supplier Entry',
+                link: '#',
+            },
+            {
+                label: 'Material List',
+                link: '#',
+            },
+            {
+                label: 'Material Price List',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Construction',
+        submenu: [
+            {
+                label: 'Construction Admin Order Entry',
+                link: '#',
+            },
+            {
+                label: 'Opening Store Report Entry',
+                link: '#',
+            },
+            {
+                label: 'MRR Entry',
+                link: '#',
+            },
+            {
+                label: 'Transfer Note Entry',
+                link: '#',
+            },
+            {
+                label: 'Deduction Note Entry',
+                link: '#',
+            },
+            {
+                label: 'Store Report Entry',
+                link: '#',
+            },
+            {
+                label: 'Construction Admin Order',
+                link: '#',
+            },
+            {
+                label: 'Store Ledger',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Admin',
+        submenu: [
+            {
+                label: 'PI Entry',
+                link: '#',
+            },
+            {
+                label: 'Personal Profile Entry',
+                link: '#',
+            },
+            {
+                label: 'Admin Order Entry',
+                link: '#',
+            },
+            {
+                label: 'Attendance Entry',
+                link: '#',
+            },
+            {
+                label: 'Leave Entry',
+                link: '#',
+            },
+            {
+                label: 'HR Setup Entry',
+                link: '#',
+            },
+            {
+                label: 'Personal Profile',
+                link: '#',
+            },
+            {
+                label: 'Personal Profile Search',
+                link: '#',
+            },
+            {
+                label: 'Employee State/Responsibility',
+                link: '#',
+            },
+            {
+                label: 'Admin Order',
+                link: '#',
+            },
+            {
+                label: 'Attendance',
+                link: '#',
+            },
+            {
+                label: 'Absence State',
+                link: '#',
+            },
+            {
+                label: 'Daily Absence',
+                link: '#',
+            },
+            {
+                label: 'Previous Employee',
+                link: '#',
+            },
+            {
+                label: 'Employee Report',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Security',
+        submenu: [
+            {
+                label: 'Security Guard Posting Order Entry',
+                link: '#',
+            },
+            {
+                label: 'Duty Shift Entry',
+                link: '#',
+            },
+            {
+                label: 'Security Guard Posting Order',
+                link: '#',
+            },
+            {
+                label: 'Security Guard Current Posting',
+                link: '#',
+            },
+            {
+                label: 'Duty Shift',
+                link: '#',
+            },
+        ],
+    },
 ];
 export default menuData;
