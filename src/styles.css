@@ -8,7 +8,7 @@
   background-color: #333;
   color: #fff;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
 }
 
 .menu-list {
@@ -54,5 +54,9 @@
 }
 
 .submenu-item:hover {
+  background-color: #555;
+}
+
+.selected {
   background-color: #555;
 }

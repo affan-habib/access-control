@@ -1,4 +1,3 @@
-import { getAccessToken } from "helpers/AuthUtils";
 
 const fetcher = async (url, options = {}) => {
   const method = options.method || "get";
@@ -10,13 +9,13 @@ const fetcher = async (url, options = {}) => {
   }
 
   let headers = {
-    Authorization: "Bearer " + getAccessToken(),
+    // Authorization: "Bearer " + getAccessToken(),
     "Content-Type": "application/json",
   };
 
   if (options.hasFile) {
     headers = {
-      Authorization: "Bearer " + getAccessToken()
+      Authorization: "Bearer " + "getAccessToken()"
     };
   }
 
