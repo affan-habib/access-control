@@ -387,5 +387,330 @@ const menuData = [
             },
         ],
     },
+    {
+        label: 'Accounts',
+        submenu: [
+            {
+                label: 'Chart of Acc Setup',
+                link: '#',
+            },
+            {
+                label: 'Payment Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'SignM Payment Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Loan Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Cash Purchase Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Credit Purchase Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Collection Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Misc Receipt Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Contra Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Journal Voucher Entry',
+                link: '#',
+            },
+            {
+                label: 'Back Office Transaction Entry',
+                link: '#',
+            },
+            {
+                label: 'Chart of Acct',
+                link: '#',
+            },
+            {
+                label: 'Cash Day Book',
+                link: '#',
+            },
+            {
+                label: 'Bank Day Book',
+                link: '#',
+            },
+            {
+                label: 'Voucher Register',
+                link: '#',
+            },
+            {
+                label: 'Cash Book',
+                link: '#',
+            },
+            {
+                label: 'Bank Book',
+                link: '#',
+            },
+            {
+                label: 'Ledger',
+                link: '#',
+            },
+            {
+                label: 'Trial Balance',
+                link: '#',
+            },
+            {
+                label: 'Acc Register',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Logistics',
+        submenu: [
+            {
+                label: 'Rajuk Entry',
+                link: '#',
+            },
+            {
+                label: 'DCC Entry',
+                link: '#',
+            },
+            {
+                label: 'DESCO Entry',
+                link: '#',
+            },
+            {
+                label: 'WASA Entry',
+                link: '#',
+            },
+            {
+                label: 'Titas Entry',
+                link: '#',
+            },
+            {
+                label: 'Rajuk Register',
+                link: '#',
+            },
+            {
+                label: 'DCC Register',
+                link: '#',
+            },
+            {
+                label: 'DESCO Register',
+                link: '#',
+            },
+            {
+                label: 'WASA Register',
+                link: '#',
+            },
+            {
+                label: 'Titas Register',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Customer Service',
+        submenu: [
+            {
+                label: 'Sales Entry',
+                link: '#',
+            },
+            {
+                label: 'Collection Entry',
+                link: '#',
+            },
+            {
+                label: 'Cheque Return Entry',
+                link: '#',
+            },
+            {
+                label: 'Money Return Entry',
+                link: '#',
+            },
+            {
+                label: 'Reminder Chart',
+                link: '#',
+            },
+            {
+                label: 'Sales Register',
+                link: '#',
+            },
+            {
+                label: 'Collection Register',
+                link: '#',
+            },
+            {
+                label: 'Money Return Register',
+                link: '#',
+            },
+            {
+                label: 'Buyer Payment Summary',
+                link: '#',
+            },
+            {
+                label: 'Collection Assistant',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Process',
+        submenu: [
+            {
+                label: 'Money Req Entry',
+                link: '#',
+            },
+            {
+                label: 'Money Req Approval',
+                link: '#',
+            },
+            {
+                label: 'Money Slip',
+                link: '#',
+            },
+            {
+                label: 'Bill Type Entry',
+                link: '#',
+            },
+            {
+                label: 'General Bill Entry',
+                link: '#',
+            },
+            {
+                label: 'Purchase Bill Entry',
+                link: '#',
+            },
+            {
+                label: 'Creditor Bill Entry',
+                link: '#',
+            },
+            {
+                label: 'Bill Summary Entry',
+                link: '#',
+            },
+            {
+                label: 'Bill Check List',
+                link: '#',
+            },
+            {
+                label: 'Bill Audit List',
+                link: '#',
+            },
+            {
+                label: 'Bill Approve List',
+                link: '#',
+            },
+            {
+                label: 'Money Req List',
+                link: '#',
+            },
+            {
+                label: 'Bill Register',
+                link: '#',
+            },
+            {
+                label: 'Bill Summary',
+                link: '#',
+            },
+            {
+                label: 'Audit Register',
+                link: '#',
+            },
+        ],
+    },
+    {
+        label: 'Register',
+        submenu: [
+            {
+                label: 'IOU Entry',
+                link: '#',
+            },
+            {
+                label: 'Cheque Book Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Cheque Sign Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Direct Payment Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Direct Receive Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Creditor Payment Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Bank Deposit Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Bank Withdrawal Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Inter Account Transfer Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Journal Register Entry',
+                link: '#',
+            },
+            {
+                label: 'Debtor Payment Entry',
+                link: '#',
+            },
+            {
+                label: 'Loan Register Entry',
+                link: '#',
+            },
+            {
+                label: 'IOU Register',
+                link: '#',
+            },
+            {
+                label: 'IOU Balance',
+                link: '#',
+            },
+            {
+                label: 'IOU Summary',
+                link: '#',
+            },
+            {
+                label: 'Direct Payment Register',
+                link: '#',
+            },
+            {
+                label: 'Direct Receive Register',
+                link: '#',
+            },
+            {
+                label: 'Sundry Creditor Register',
+                link: '#',
+            },
+            {
+                label: 'Bank Deposit Register',
+                link: '#',
+            },
+            {
+                label: 'Bank Withdrawal Register',
+                link: '#',
+            },
+        ],
+    },
 ];
 export default menuData;
