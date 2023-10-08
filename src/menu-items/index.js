@@ -166,7 +166,7 @@ const menuData = [
         submenu: [
             {
                 label: 'Project Profile Entry',
-                link: '#',
+                link: 'project-profile-entry',
             },
             {
                 label: 'Building Profile Entry',

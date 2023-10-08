@@ -1,16 +1,16 @@
 import Loadable from "components/Loadable";
 import { lazy } from "react";
 
-const Layout = Loadable(lazy(() => import("layout/AdminLayout")));
-const HomePage = Loadable(lazy(() => import("pages/HomePage")));
+const ProjectProfileEntry = Loadable(lazy(() => import("pages/project-profile/ProjectProfileEntry")));
+const BasicLayout = Loadable(lazy(() => import("layout/BasicLayout")));
 
 const AdminRoutes = {
-  path: "/admin",
-  element: <Layout />,
+  path: "/",
+  element: <BasicLayout />,
   children: [
     {
-      path: "dashboard",
-      element: <HomePage />,
+      path: "project-profile-entry",
+      element: <ProjectProfileEntry />,
     },
   ],
 }

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
 import { CssBaseline, createTheme, ThemeProvider } from '@mui/material';
 
 // ==============================|| DEFAULT THEME - MAIN  ||============================== //
@@ -36,12 +35,21 @@ export default function ThemeCustomization({ children }) {
             boxShadow: 'none', // Remove the shadow
             '&:hover': {
               boxShadow: 'none',
-
             },
           },
         },
         defaultProps: {
           disableRipple: true, // Disable the ripple effect by default
+        },
+      },
+      MuiTextField: {
+        defaultProps: {
+          size: 'small', // Set the default size to "small"
+        },
+        styleOverrides: {
+          root: {
+            width: '100%', // Set the default width to 100%
+          },
         },
       },
     },

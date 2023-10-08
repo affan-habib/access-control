@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import menuData from 'menu-items';
+import { useNavigate } from 'react-router';
 
 const MenuBar = () => {
   // State to keep track of the selected menu and submenu items
   const [selectedMenu, setSelectedMenu] = useState(null);
   const [selectedSubmenu, setSelectedSubmenu] = useState(null);
-
+  const navigate = useNavigate()
   const handleMenuClick = (menuLabel) => {
     setSelectedMenu(menuLabel);
     setSelectedSubmenu(null); // Clear the selected submenu when a menu item is clicked
   };
 
-  const handleSubmenuClick = (submenuLabel) => {
+  const handleSubmenuClick = (submenuLabel, link) => {
     setSelectedSubmenu(submenuLabel);
+    navigate(link)
   };
 
   const renderSubmenu = (submenuItems) => {
@@ -20,11 +22,10 @@ const MenuBar = () => {
       <ul className="submenu">
         {submenuItems.map((submenuItem) => (
           <li
-            className={`submenu-item ${
-              submenuItem.label === selectedSubmenu ? 'selected' : ''
-            }`}
+            className={`submenu-item ${submenuItem.label === selectedSubmenu ? 'selected' : ''
+              }`}
             key={submenuItem.label}
-            onClick={() => handleSubmenuClick(submenuItem.label)}
+            onClick={() => handleSubmenuClick(submenuItem.label, submenuItem.link)}
           >
             {submenuItem.label}
           </li>
