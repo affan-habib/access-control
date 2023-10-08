@@ -1,4 +1,5 @@
 import Loadable from "components/Loadable";
+import AdminLayout from "layout/AdminLayout";
 import { lazy } from "react";
 
 const ProjectProfileEntry = Loadable(lazy(() => import("pages/project-profile/ProjectProfileEntry")));

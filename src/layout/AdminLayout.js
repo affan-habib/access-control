@@ -19,6 +19,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Outlet, useLocation, Link as RouterLink } from 'react-router-dom';
 import menuItems from 'menu-items';
+import { Dashboard, DesktopAccessDisabled, UsbOffRounded } from '@mui/icons-material';
 
 const drawerWidth = 240;
 
@@ -154,7 +155,7 @@ export default function AdminLayout() {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    {item.icon}
+                                    {item.icon || <Dashboard />}
                                 </ListItemIcon>
                                 <ListItemText primary={item.label} sx={{ opacity: open ? 1 : 0 }} />
                             </ListItemButton>

@@ -52,6 +52,23 @@ export default function ThemeCustomization({ children }) {
           },
         },
       },
+      MuiSelect: {
+        defaultProps: {
+          size: "small"
+        }
+      },
+      MuiMenuItem: {
+        defaultProps: {
+          disableRipple: true,
+
+        },
+
+      },
+      MuiListItem: {
+        defaultProps: {
+          disableRipple: true
+        },
+      }
     },
   });
 

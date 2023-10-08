@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Grid, InputLabel, TextField, Button, Container, Divider, Typography, InputAdornment, IconButton } from '@mui/material';
+import { Grid, InputLabel, TextField, Button, Container, Divider, Typography, InputAdornment, IconButton, Select, MenuItem } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import HomePage from 'pages/HomePage';
 
@@ -161,11 +161,15 @@ const ProjectForm = () => {
                         <Grid item xs={12} sm={6} md={4} lg={3}>
                             <InputLabel sx={{ mb: 1 }} htmlFor="ProjectLocationId">Project Location</InputLabel>
                             <Field
-                                component={TextField}
-                                type="number"
+                                component={Select}
                                 name="ProjectLocationId"
                                 fullWidth
-                            />
+                            >
+                                <MenuItem value={1}>Location 1</MenuItem>
+                                <MenuItem value={2}>Location 2</MenuItem>
+                                <MenuItem value={3}>Location 3</MenuItem>
+                                {/* Add more MenuItem components as needed */}
+                            </Field>
                         </Grid>
                         <Grid item xs={12} sm={6} md={4} lg={3}>
                             <InputLabel sx={{ mb: 1 }} htmlFor="ProjectStartDt">Project Start Date</InputLabel>
@@ -196,14 +200,19 @@ const ProjectForm = () => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} md={4} lg={3}>
-                            <InputLabel sx={{ mb: 1 }} htmlFor="ProjectRelationId">Project Relation Id</InputLabel>
+                            <InputLabel sx={{ mb: 1 }} htmlFor="ProjectRelationId">Project Relation</InputLabel>
                             <Field
-                                component={TextField}
-                                type="number"
+                                component={Select}
                                 name="ProjectRelationId"
                                 fullWidth
-                            />
+                            >
+                                <MenuItem value={1}>Relation 1</MenuItem>
+                                <MenuItem value={2}>Relation 2</MenuItem>
+                                <MenuItem value={3}>Relation 3</MenuItem>
+                                {/* Add more MenuItem components as needed */}
+                            </Field>
                         </Grid>
+
                         {/* Add more fields here based on your model */}
                         <Grid item xs={12}>
                             <HomePage />
