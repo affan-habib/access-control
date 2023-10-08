@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Grid, InputLabel, TextField, Button, Container, Divider, Typography, InputAdornment, IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material';
+import HomePage from 'pages/HomePage';
 
 const validationSchema = Yup.object().shape({
     ProjectCode: Yup.string().required('Project Code is required'),
@@ -68,6 +69,7 @@ const ProjectForm = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 minHeight: 'calc(100vh - 70px)',
+                mt: 6
             }}
         >
             <Formik
@@ -78,7 +80,10 @@ const ProjectForm = () => {
                 <Form>
                     <Grid container spacing={2}>
                         <Grid item lg={12}>
-                            <Typography variant='h4'>Project Profile Entry Form</Typography>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <Typography variant='h4'>Project Profile Entry</Typography>
+                                <Button variant="contained" color="primary" size='large'>Save</Button>
+                            </div>
                             <Divider sx={{ my: 4 }} />
                         </Grid>
                         <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -180,7 +185,7 @@ const ProjectForm = () => {
                                 fullWidth
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} md={6}>
                             <InputLabel sx={{ mb: 1 }} htmlFor="ProjectRemarks">Project Remarks</InputLabel>
                             <Field
                                 component={TextField}
@@ -200,6 +205,9 @@ const ProjectForm = () => {
                             />
                         </Grid>
                         {/* Add more fields here based on your model */}
+                        <Grid item xs={12}>
+                            <HomePage />
+                        </Grid>
                         <Grid item xs={12}>
                             <Button type="submit" variant="contained" color="primary">
                                 Submit

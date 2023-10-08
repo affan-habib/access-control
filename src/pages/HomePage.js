@@ -1,82 +1,60 @@
-import React, { useEffect, useState } from "react";
-import fetcher from "lib/fetcher";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
-    Container,
-    Typography,
-    Button,
-    Box, // Import Box for styling
-    Pagination, // Import Pagination component
-} from "@mui/material";
+import React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { Typography, IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-function HomePage() {
-    const [userData, setUserData] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
 
-    useEffect(() => {
-        // Fetch user data from Reqres API
-        fetcher(`https://reqres.in/api/users?page=${currentPage}`)
-            .then((data) => {
-                setUserData(data.data);
-            })
-            .catch((error) => {
-                console.error("Error fetching user data:", error);
-            });
-    }, [currentPage]);
+const LandDetails = () => {
+    const columns = [
+        { field: 'landCode', headerName: 'Land Code', width: 150 },
+        { field: 'landSize', headerName: 'Land Size (Katha)', width: 180 },
+        { field: 'location', headerName: 'Location', flex: 1 },
+        { field: 'landShare', headerName: 'Land Share in Project Katha', width: 250 },
+        {
+            field: 'actions',
+            headerName: 'Actions',
+            width: 150,
+            renderCell: (params) => (
+                <div>
+                    <IconButton aria-label="edit" onClick={() => handleEdit(params.row.id)}>
+                        <EditIcon />
+                    </IconButton>
+                    <IconButton aria-label="delete" onClick={() => handleDelete(params.row.id)}>
+                        <DeleteIcon />
+                    </IconButton>
+                </div>
+            ),
+        },
+    ];
+    const landDetails = [
+        { id: 1, landCode: 'LC001', landSize: '5 Katha', location: 'Location A', landShare: '2 Katha' },
+        { id: 2, landCode: 'LC002', landSize: '8 Katha', location: 'Location B', landShare: '3 Katha' },
+    ];
 
-    const handlePageChange = (event, newPage) => {
-        setCurrentPage(newPage);
+    const handleEdit = (id) => {
+        // Implement your edit logic here
+        console.log(`Edit clicked for id: ${id}`);
+    };
+
+    const handleDelete = (id) => {
+        // Implement your delete logic here
+        console.log(`Delete clicked for id: ${id}`);
     };
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 4 }}>
-            <Typography variant="h5" gutterBottom>
-                User Data
-            </Typography>
-            <TableContainer component={Paper} square elevation={1} sx={{bgcolor: '#lightGrey'}}>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>ID</TableCell>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Email</TableCell>
-                            {/* Add more headers as needed */}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {userData.map((user) => (
-                            <TableRow key={user.id}>
-                                <TableCell>{user.id}</TableCell>
-                                <TableCell>{user.first_name} {user.last_name}</TableCell>
-                                <TableCell>{user.email}</TableCell>
-                                {/* Add more cells for additional user properties */}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <Box
-                display="flex"
-                justifyContent="flex-end"
-                alignItems="center"
-                marginTop="20px"
-            >
-                <Pagination
-                    count={2} // Specify the total number of pages here
-                    page={currentPage}
-                    onChange={handlePageChange}
-                    variant="outlined"
-                    shape="rounded"
-                />
-            </Box>
-        </Container>
+        <div style={{ width: '100%' }}>
+            <Typography sx={{ my: 6 }} variant='h5'>Land Details</Typography>
+            <DataGrid
+                rows={landDetails}
+                columns={columns}
+                pageSize={5}
+                rowsPerPageOptions={[5, 10, 20]}
+                checkboxSelection
+                hideFooter={true}
+            />
+        </div>
     );
-}
+};
 
-export default HomePage;
+export default LandDetails;
