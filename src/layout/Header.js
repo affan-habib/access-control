@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import menuData from 'menu-items';
 import { useNavigate } from 'react-router';
+import { AppBar } from '@mui/material';
 
 const MenuBar = () => {
   // State to keep track of the selected menu and submenu items
@@ -36,18 +37,20 @@ const MenuBar = () => {
 
   const renderMenu = (items) => {
     return (
-      <ul className="menu-list">
-        {items.map((item) => (
-          <li
-            className={`menu-item ${item.label === selectedMenu ? 'selected' : ''}`}
-            key={item.label}
-            onClick={() => handleMenuClick(item.label)}
-          >
-            {item.label}
-            {item.submenu && renderSubmenu(item.submenu)}
-          </li>
-        ))}
-      </ul>
+      <AppBar>
+        <ul className="menu-list">
+          {items.map((item) => (
+            <li
+              className={`menu-item ${item.label === selectedMenu ? 'selected' : ''}`}
+              key={item.label}
+              onClick={() => handleMenuClick(item.label)}
+            >
+              {item.label}
+              {item.submenu && renderSubmenu(item.submenu)}
+            </li>
+          ))}
+        </ul>
+      </AppBar>
     );
   };
 

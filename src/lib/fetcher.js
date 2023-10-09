@@ -9,7 +9,7 @@ const fetcher = async (url, options = {}) => {
   }
 
   let headers = {
-    // Authorization: "Bearer " + getAccessToken(),
+    Authorization: "Bearer " + getAccessToken(),
     "Content-Type": "application/json",
   };
 
